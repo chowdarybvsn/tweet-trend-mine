@@ -19,7 +19,12 @@ pipeline {
         environment {
              scannerHome = tool 'Mysonar'
         }
-           steps{
+           agent {
+              node{
+                 label 'sonar' 
+               }
+            } 
+           steps {
             withSonarQubeEnv('Mysonar')
               {
                 sh "${scannerHome}/bin/sonar-scanner"
