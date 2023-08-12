@@ -6,12 +6,12 @@ pipeline {
     }
     stages {
         stage('git checkout') { 
-            step {
+            steps {
                 git branch: "master", url: "https://github.com/chowdarybvsn/tweet-trend-mine.git"
             }
         }
         stage('mvn install') {
-           step {
+           steps {
              sh 'mvn clean deploy'
           }
        }
