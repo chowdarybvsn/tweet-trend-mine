@@ -16,12 +16,12 @@ pipeline {
           }
        }
         stage('SonarQube analysis') {
-            environment {
-                scannerHome = tool 'Mysonar'
-            }
-            steps{
-             withSonarQubeEnv('Mysonar')
-                 sh '${scannerHome}/bin/sonar-scanner'
+        environment {
+             scannerHome = tool 'Mysonar'
+        }
+        steps{
+         withSonarQubeEnv('Mysonar')
+             sh "${scannerHome}/bin/sonar-scanner"
             }
         }
     }
